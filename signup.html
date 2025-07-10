@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - Netflix</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico" />
+</head>
+<body class="login-body">
+  <div class="login-container">
+    <form class="login-form" onsubmit="registerUser(event)">
+      <h1>Create a password to start your membership</h1>
+      <p>Just a few more steps and you're done!</p>
+      <p>We hate paperwork, too.</p>
+
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email address" required id="email" />
+      <input type="password" placeholder="Add a password" required />
+
+      <button type="submit" class="login-btn">Next</button>
+
+      <div class="signup-now">
+        <p>Already have an account? <a href="login.html">Sign in</a>.</p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const emailFromLanding = localStorage.getItem("tempEmail");
+      if (emailFromLanding) {
+        document.getElementById("email").value = emailFromLanding;
+      }
+    });
+
+    function registerUser(e) {
+      e.preventDefault();
+
+      const name = document.querySelector('input[placeholder="Full Name"]').value.trim();
+      const email = document.querySelector('input[type="email"]').value.trim();
+      const password = document.querySelector('input[type="password"]').value.trim();
+
+      if (!name || !email || !password) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const user = { name, email, password };
+      localStorage.setItem("netflixUser", JSON.stringify(user));
+      localStorage.removeItem("tempEmail");
+      alert("Signup successful! Redirecting to login...");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Netflix Clone - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="home-page">
+  <header class="navbar">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" class="nav-logo" />
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">TV Shows</a>
+      <a href="#">Movies</a>
+      <a href="#">New & Popular</a>
+      <a href="#">My List</a>
+    </nav>
+    <div class="nav-profile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" />
+      <span id="username-display"></span>
+      <button onclick="logout()" class="logout-btn">Logout</button>
+    </div>
+    
+    
+  </header>
+
+  <main class="content">
+    <section class="movie-row">
+      <h2>Trending Now</h2>
+      <div class="movie-posters">
+        <img src="https://image.tmdb.org/t/p/w200/6n0xTlCjYyujgiIQQhMStvVYjEr.jpg"
+     class="poster"
+     onclick="openModal('Extraction 2', 'A black ops mercenary embarks on a deadly mission.', 'https://www.youtube.com/embed/lZKqMVPlDg8')"/>
+
+        <img src="https://image.tmdb.org/t/p/w200/kdPMUMJzyYAc4roD52qavX0nLIC.jpg" class="poster" />
+        <img src="https://image.tmdb.org/t/p/w200/czembW0Rk1Ke7lCJGahbOhdCuhV.jpg" class="poster" />
+        <img src="https://image.tmdb.org/t/p/w200/3gw8kkZ1v8ez6dIkKOs2RyFjK1M.jpg" class="poster" />
+      </div>
+    </section>
+
+    <section class="movie-row">
+      <h2>Top Rated</h2>
+      <div class="movie-posters">
+        <img src="https://image.tmdb.org/t/p/w200/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg" class="poster" />
+        <img src="https://image.tmdb.org/t/p/w200/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg" class="poster" />
+        <img src="https://image.tmdb.org/t/p/w200/roYyPiQDQKmIKUEhO912693tSja.jpg" class="poster" />
+        <img src="https://image.tmdb.org/t/p/w200/xDMIl84Qo5Tsu62c9DGWhmPI67A.jpg" class="poster" />
+      </div>
+    </section>
+  </main>
+  <!-- Modal Structure -->
+<div id="movieModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modal-title">Movie Title</h2>
+    <p id="modal-desc">Movie description goes here...</p>
+    <iframe id="modal-video" width="100%" height="315" src="" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+<script>
+  function openModal(title, description, trailerUrl) {
+    document.getElementById('modal-title').textContent = title;
+    document.getElementById('modal-desc').textContent = description;
+    document.getElementById('modal-video').src = trailerUrl + "?autoplay=1";
+    document.getElementById('movieModal').style.display = "flex";
+  }
+
+  function closeModal() {
+    document.getElementById('movieModal').style.display = "none";
+    document.getElementById('modal-video').src = ""; // stop trailer
+  }
+</script>
+
+  
+  
+</body>
+</html>
