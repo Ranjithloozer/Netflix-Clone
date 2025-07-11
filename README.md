@@ -14,4 +14,5 @@ a featured banner, category rows, and hover previews — perfect for learning fr
 - 🔍 (Optional) Search functionality and login flow
 - 🧩 (Optional) Java backend for dynamic content loading (Spring Boot or Servlet)
 
-
+URL:
+https://ranjithloozer.github.io/Netflix-Clone/
